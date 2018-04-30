@@ -39,15 +39,11 @@ public class VerificationInformationController{
 	@Autowired
 	private VerificationInformationRepository verification;
 	
-	
-	/*@Autowired
-	AadharVerificationServiceProxy proxy;*/
-	
 	//String phoneNo = proxy.addAadhar();
 	//Function Generating random integers between 1000 and 9999
 	public int getRandomIntegerBetweenRange(int min, int max){ 
 		int x = (int)(Math.random()*((max-min)+1))+min; 
-		return x; 
+		return x;
 	}
 	
 
@@ -78,14 +74,7 @@ public class VerificationInformationController{
 		
 		System.out.println("\n\n\n\n\nOTP generated successfully. It is valid for 120 seconds");
 		//we are assuming that otp has been sent to person on text
-		/*Thread t = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				getResponse();
-			}
-		});
-		t.start();*/
-		//deleteOTP();
+		deleteOTP();
 		String var = "Your OTP expired";
 		return ResponseEntity.status(HttpStatus.CREATED).body(var);
 	}
@@ -94,17 +83,11 @@ public class VerificationInformationController{
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error");
 	}
 	}
-	
-	/*public ResponseEntity<String> getResponse(){
-		String var = "OTP Generated";
-		return ResponseEntity.status(HttpStatus.CREATED).body(var);
-	}
-	*/
 	//Function to delete the OTP after 2 minutes.
 		public String deleteOTP() {
 			
 				try {
-					/*Thread.sleep(12000000);*/
+					Thread.sleep(12000000);
 					System.out.println("Yup");
 				} catch (Exception e) {
 					System.out.println("Nope");
